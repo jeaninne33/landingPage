@@ -1,4 +1,4 @@
-<?php
+z<?php
 
 return [
 
@@ -116,6 +116,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'document' => 'Cédula',
+         'name' => 'Nombre',
+         'lastname' => 'Apellido',
+         'email' => 'Correo',
+         'phone' => 'Celular',
+          'id_depeartament' => 'Departamento',
+          'id_city'=>'Ciudad'
+
+    ],
 
 ];

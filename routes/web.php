@@ -1,5 +1,5 @@
 <?php
-
+	use App\Participant;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'DrawController@index');
+
+Route::resource('draws','DrawController');
+
+Route::get('/city/{id}',function($id){
+  $citys=Participant::city();
+  $i=$id-1;
+  return Response::json([$citys[$i]]);
+});
+
+Route::get('/export-draw', function(){
+	return (new App\Exports\ParticipantExport)->download('registros.xlsx');
+	//return \Excel::download( new App\Exports\ParticipantImport, 'registros.xlsx');
 });
